@@ -233,8 +233,8 @@ video {
 .preloader {
   background: -moz-linear-gradient(top, #05f81a 0%, #0d0e0d 100%); 
   background: -webkit-linear-gradient(top, #08fe1d 0%,#39ced6 100%); 
-  background: linear-gradient(to bottom, #05fa4b 0%,#39ced6 100%); 
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#293c34', endColorstr='#0a2a16',GradientType=0 ); 
+  background: linear-gradient(to bottom, #04ff53 0%,#39ced6 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#293c34', endColorstr='#02fd62',GradientType=0 ); 
   height: 100%;
   left: 0;
   position: fixed;
@@ -261,9 +261,9 @@ video {
 .preloader-bounce {
   left: 0;
   right: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  top: 80%;
+  -webkit-transform: translateY(-80%);
+  transform: translateY(-80%);
   position: absolute;
 }
 .preloader-bounce > span {
@@ -273,18 +273,18 @@ video {
   margin: 0.3em;
   display: inline-block;
   vertical-align: middle;
-  -webkit-animation: bounce 0.6s infinite alternate;
-  animation: bounce 0.6s infinite alternate;
+  -webkit-animation: bounce 0.9s infinite alternate;
+  animation: bounce 0.9s infinite alternate;
   background: #fff;
 }
 .preloader-bounce > span:nth-child(2){
-  -webkit-animation-delay: 0.2s;
-  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4;
   background: #fff;
 }
 .preloader-bounce > span:nth-child(3){
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
   background: #fff;
 }
 
