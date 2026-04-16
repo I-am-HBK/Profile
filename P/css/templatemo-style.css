@@ -231,6 +231,21 @@ video {
 
 
 .preloader {
+  background: -moz-linear-gradient(top, #05f81a 0%, #0d0e0d 100%); 
+  background: -webkit-linear-gradient(top, #08fe1d 0%,#39ced6 100%); 
+  background: linear-gradient(to bottom, #05fa4b 0%,#39ced6 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#293c34', endColorstr='#0a2a16',GradientType=0 ); 
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+  text-align: center;
+}
+
+
+/*.preloader {
   background: -moz-linear-gradient(top, #4096ee 0%, #39ced6 100%); 
   background: -webkit-linear-gradient(top, #4096ee 0%,#39ced6 100%); 
   background: linear-gradient(to bottom, #4096ee 0%,#39ced6 100%); 
@@ -242,7 +257,7 @@ video {
   top: 0;
   z-index: 9999;
   text-align: center;
-}
+}*/
 .preloader-bounce {
   left: 0;
   right: 0;
