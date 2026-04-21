@@ -315,19 +315,24 @@
 })();
 
 
+const form = document.querySelector('form');
 
+form.addEventListener('submit', async function(e) {
+  e.preventDefault(); // stops the page from navigating
 
-document.getElementById('ajax-contact').addEventListener('submit', function(e) {
-  e.preventDefault();
+  const response = await fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  });
 
-  this.reset();
-
-  const formMessages = document.getElementById('form-messages');
-  formMessages.removeAttribute('class');
-  formMessages.setAttribute('style', 'background:transparent !important; border:none !important; padding:0 !important; box-shadow:none !important;');
-  formMessages.innerHTML = '<p style="color:white !important; font-weight:bold; background:transparent !important; border:none !important; padding:0; margin:10px 0 0 0;">✅ Message sent successfully!</p>';
-
-  setTimeout(function() {
-    document.getElementById('form-messages').innerHTML = '';
-  }, 5000);
+  if (response.ok) {
+    // Show your own success message
+    form.reset();
+    alert('Message sent successfully!');
+    // or show a div: document.getElementById('success-msg').style.display = 'block';
+  } else {
+    alert('Oops! Something went wrong.');
+  }
 });
+
