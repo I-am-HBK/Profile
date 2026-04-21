@@ -315,24 +315,33 @@
 })();
 
 
-const form = document.querySelector('form');
 
-form.addEventListener('submit', async function(e) {
-  e.preventDefault(); // stops the page from navigating
 
-  const response = await fetch(form.action, {
+document.getElementById('ajax-contact').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const form = document.getElementById('ajax-contact');
+  const formMessages = document.getElementById('form-messages');
+  const data = new FormData(form);
+
+  fetch('https://formspree.io/f/xyzabcde', {  // replace with your Formspree URL
     method: 'POST',
-    body: new FormData(form),
+    body: data,
     headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      form.reset();
+      formMessages.innerHTML = '<p>✅ Message sent successfully!</p>';
+      setTimeout(function() {
+        formMessages.innerHTML = '';
+      }, 5000);
+    } else {
+      formMessages.innerHTML = '<p>❌ Something went wrong. Try again.</p>';
+    }
+  })
+  .catch(() => {
+    formMessages.innerHTML = '<p>❌ Network error. Try again.</p>';
   });
-
-  if (response.ok) {
-    // Show your own success message
-    form.reset();
-    alert('Message sent successfully!');
-    // or show a div: document.getElementById('success-msg').style.display = 'block';
-  } else {
-    alert('Oops! Something went wrong.');
-  }
 });
 
