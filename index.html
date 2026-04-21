@@ -457,19 +457,37 @@
 
 
 <script>
-      document.getElementById('ajax-contact').addEventListener('submit', function(e) {
-        e.preventDefault();
+document.getElementById('ajax-contact').addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-        this.reset();
+  const form = this;
+  const data = new FormData(form);
+  const messageBox = document.getElementById('form-messages');
 
-        document.getElementById('form-messages').innerHTML = 
-          '<p style="color:green; font-weight:bold;">✅ Message sent successfully!</p>';
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
 
-        setTimeout(function() {
-          document.getElementById('form-messages').innerHTML = '';
-        }, 5000);
-      });
-    </script>
+    if (response.ok) {
+      messageBox.innerHTML = '<p style="color:green; font-weight:bold;">✅ Message sent successfully!</p>';
+      form.reset();
+    } else {
+      messageBox.innerHTML = '<p style="color:red; font-weight:bold;">❌ Failed to send message.</p>';
+    }
+  } catch (error) {
+    messageBox.innerHTML = '<p style="color:red; font-weight:bold;">❌ Error sending message.</p>';
+  }
+
+  setTimeout(() => {
+    messageBox.innerHTML = '';
+  }, 5000);
+});
+</script>
                                                   
     <script src="./js/jquery.js"></script>
 
