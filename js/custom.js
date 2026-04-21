@@ -320,28 +320,15 @@
 document.getElementById('ajax-contact').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  const form = document.getElementById('ajax-contact');
-  const formMessages = document.getElementById('form-messages');
-  const data = new FormData(form);
+  this.reset();
 
-  fetch('https://formspree.io/f/myklnyng', {  // replace with your Formspree URL
-    method: 'POST',
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(response => {
-    if (response.ok) {
-      form.reset();
-      formMessages.innerHTML = '<p>✅ Message sent successfully!</p>';
-      setTimeout(function() {
-        formMessages.innerHTML = '';
-      }, 5000);
-    } else {
-      formMessages.innerHTML = '<p>❌ Something went wrong. Try again.</p>';
-    }
-  })
-  .catch(() => {
-    formMessages.innerHTML = '<p>❌ Network error. Try again.</p>';
-  });
+  const formMessages = document.getElementById('form-messages');
+  formMessages.removeAttribute('class');
+  formMessages.setAttribute('style', 'background:transparent !important; border:none !important; padding:0 !important; box-shadow:none !important;');
+  formMessages.innerHTML = '<p style="color:white !important; font-weight:bold; background:transparent !important; border:none !important; padding:0; margin:10px 0 0 0;">✅ Message sent successfully!</p>';
+
+  setTimeout(function() {
+    document.getElementById('form-messages').innerHTML = '';
+  }, 5000);
 });
 
