@@ -881,3 +881,15 @@ textarea.form-control {
   background-color: #fff;
   border-radius: 3px;
 }
+
+
+
+
+#form-messages,
+#form-messages p {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: white !important;
+}
