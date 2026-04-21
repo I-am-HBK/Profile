@@ -324,7 +324,7 @@ document.getElementById('ajax-contact').addEventListener('submit', function(e) {
   const formMessages = document.getElementById('form-messages');
   const data = new FormData(form);
 
-  fetch('https://formspree.io/f/xyzabcde', {  // replace with your Formspree URL
+  fetch('https://formspree.io/f/myklnyng', {  // replace with your Formspree URL
     method: 'POST',
     body: data,
     headers: { 'Accept': 'application/json' }
