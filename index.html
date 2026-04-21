@@ -51,6 +51,8 @@
     </head>
     
     <body>
+
+      
     
     <div id="video">
         <div id="preloader">
@@ -469,6 +471,21 @@
 
     <script src="./js/custom.js"></script>
 
+
+    <script>
+      document.getElementById('ajax-contact').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        this.reset();
+
+        document.getElementById('form-messages').innerHTML = 
+          '<p style="color:green; font-weight:bold;">✅ Message sent successfully!</p>';
+
+        setTimeout(function() {
+          document.getElementById('form-messages').innerHTML = '';
+        }, 4000);
+      });
+    </script>
 
   </body>
 </html>
