@@ -313,3 +313,21 @@
   if (img.complete && img.naturalHeight !== 0) start();
   else img.addEventListener('load', start);
 })();
+
+
+
+
+document.getElementById('ajax-contact').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  this.reset();
+
+  const formMessages = document.getElementById('form-messages');
+  formMessages.removeAttribute('class');
+  formMessages.setAttribute('style', 'background:transparent !important; border:none !important; padding:0 !important; box-shadow:none !important;');
+  formMessages.innerHTML = '<p style="color:white !important; font-weight:bold; background:transparent !important; border:none !important; padding:0; margin:10px 0 0 0;">✅ Message sent successfully!</p>';
+
+  setTimeout(function() {
+    document.getElementById('form-messages').innerHTML = '';
+  }, 5000);
+});
